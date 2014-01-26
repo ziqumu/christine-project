@@ -1,0 +1,113 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `forum` DEFAULT CHARACTER SET UTF8 ;
+USE `forum` ;
+
+-- -----------------------------------------------------
+-- Table `forum`.`categories`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `forum`.`categories` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(45) NOT NULL,
+  `ordre` TINYINT(4) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `nom_cat_UNIQUE` (`nom` ASC),
+  INDEX `order` (`ordre` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = UTF8;
+
+
+-- -----------------------------------------------------
+-- Table `forum`.`forums`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `forum`.`forums` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `titre` VARCHAR(40) NOT NULL,
+  `descript` VARCHAR(255) NOT NULL,
+  `ordre` SMALLINT(6) NOT NULL,
+  `id_categorie` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `order` (`ordre` ASC),
+  INDEX `id_categorie` (`id_categorie` ASC),
+  CONSTRAINT `forums_ibfk_1`
+    FOREIGN KEY (`id_categorie`)
+    REFERENCES `forum`.`categories` (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = UTF8;
+
+
+-- -----------------------------------------------------
+-- Table `forum`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `forum`.`users` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(25) NOT NULL,
+  `mdp` CHAR(60) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `sexe` TINYINT(4) NOT NULL DEFAULT '-1',
+  `datenais` DATE NOT NULL DEFAULT '0000-00-00',
+  `region` VARCHAR(50) NOT NULL DEFAULT '',
+  `inscription` DATETIME NOT NULL,
+  `lastconnexion` DATETIME NOT NULL,
+  `ip` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `login` (`login` ASC, `email` ASC))
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = UTF8;
+
+
+-- -----------------------------------------------------
+-- Table `forum`.`topics`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `forum`.`topics` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `titre` VARCHAR(45) NOT NULL,
+  `message` TEXT NOT NULL,
+  `datepost` DATETIME NOT NULL,
+  `id_auteur` INT(11) UNSIGNED NOT NULL,
+  `id_forums` INT(11) UNSIGNED NOT NULL COMMENT 'fk',
+  PRIMARY KEY (`id`),
+  INDEX `id_auteur` (`id_auteur` ASC),
+  INDEX `id_forums` (`id_forums` ASC),
+  CONSTRAINT `topics_ibfk_1`
+    FOREIGN KEY (`id_auteur`)
+    REFERENCES `forum`.`users` (`id`),
+  CONSTRAINT `topics_ibfk_2`
+    FOREIGN KEY (`id_forums`)
+    REFERENCES `forum`.`forums` (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = UTF8;
+
+
+-- -----------------------------------------------------
+-- Table `forum`.`messages`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `forum`.`messages` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `titre` VARCHAR(45) NOT NULL,
+  `contenu` TEXT NOT NULL,
+  `datepost` DATE NOT NULL,
+  `id_users` INT(11) UNSIGNED NOT NULL,
+  `id_topics` INT(11) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `id_users` (`id_users` ASC),
+  INDEX `id_topics` (`id_topics` ASC),
+  CONSTRAINT `messages_ibfk_2`
+    FOREIGN KEY (`id_topics`)
+    REFERENCES `forum`.`topics` (`id`),
+  CONSTRAINT `messages_ibfk_1`
+    FOREIGN KEY (`id_users`)
+    REFERENCES `forum`.`users` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = UTF8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
