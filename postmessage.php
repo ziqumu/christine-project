@@ -18,8 +18,19 @@ if (empty($_POST['message']))
 //footer
 	require('includes/footer.php');
 }
-
 else
-
+{
+	if (isset($_POST['topic']))//cas de reponse à un topic
+	{
+	
+	
+	}
+	else
+	{
+	
+	
+	
+	}
+}
 
 ?>

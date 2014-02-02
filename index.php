@@ -25,12 +25,12 @@
 		$catlast = $forum['cat'] ;	 
 	
 			echo '<tr>
-					<td><a href="forum.php?id='.$forum['id'].'">'. $forum['titre'] . '</a></td>
-					<td>'. $forum['descript'] . '</td>
+					<td class="liens"><a href="forum.php?id='.$forum['id'].'">'. $forum['titre'] . '</a></td>
+					<td class="descript">'. $forum['descript'] . '</td>
 				</tr>';
 	}
 	echo'</table>';
-	//Test admin
+/*	//Test admin
 	if($user['id'] == 0)
 	{
 		echo 'Bonjour voyageur !';
@@ -43,6 +43,7 @@
 	{
 		echo "Bonjour ".$user['login']. ' !';
 	}
+	*/
 //footer
 	require('includes/footer.php');
 	

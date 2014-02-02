@@ -1,0 +1,119 @@
+html {
+height:100%;
+margin:0;
+padding:0;
+background-color:white;
+}
+.bandeau{
+background: #d3d3d3 url(images/bandeau.png) no-repeat;
+height:175px;
+width:100%:
+}
+body {
+	background-image:radial-gradient(white, #d3d3d3);
+	border: 2px  solid #c0c0c0;
+	margin: auto;
+	font-family: "Trebuchet MS";
+	color:#4c0082;
+	width:798px;
+	height: auto;
+	}
+.visite {
+	border:  1px solid #c0c0c0;
+	height:36px;
+	vertical-align:middle;
+	padding-top:3px;
+	
+}
+.new{
+	width: 48%;
+	float: left;
+	text-align: center;
+	padding-top: 6px;
+}
+.inscrit{
+	display:inline-block;
+	text-align: center;
+	padding-top: 6px;
+	min-width:48%;
+}
+a.bouton  {
+	 background-image:  url(images/boutontissus.jpg);
+	 color: #ffffff;
+	 text-decoration: none;
+	 font-weight: bold;
+	 text-align: center;
+	 padding: 3px;
+	 border: 2px outset #c0c0c0;
+}
+a.bouton:hover {
+	 color: #;
+	 border: 2px inset #c0c0c0;
+}
+a.bouton:visited { 
+	font-weight: bold; 
+	color:#eced35 ;
+}
+h1{
+	margin-top:0;
+	color:#ed1f23;
+	}
+h3{
+	color:#ed1f23;
+}
+.contenant{
+	padding:0 10px 0 10px;
+	min-height:600px;
+	background-image:radial-gradient(white, #d3d3d3);
+	
+}
+a {
+color:#4c0082;
+text-decoration: none;
+}
+p{
+margin:0;
+}
+label.contenu{
+display:inline;
+width:150px;
+}
+input.case {
+margin-bottom:10px;
+}
+table {
+border: 2px inset #c0c0c0;
+}
+.liens {
+width:25%;
+border: 2px  solid #c0c0c0;
+height:auto;
+padding:5px;
+}
+.descript{
+border: 2px  solid #c0c0c0;
+height:auto;
+text-align:justify;
+padding:5px;
+}
+.footer {
+	background: #d3d3d3 url(images/footerforumh50.png) no-repeat;
+	height:50px;
+	border: 2px solid #c0c0c0;
+	text-align:right;
+	font-size:8px;
+
+}
+.footer a {
+	margin-right:20px;
+	margin-left:20px;
+	text-decoration:none; 
+}
+.footer a:visited { 
+	font-weight: bold; 
+	color:#3f3f3f ;
+}
+.footer a:hover,a:active{
+	color:#ed1f23;
+
+}

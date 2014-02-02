@@ -101,8 +101,8 @@
 			//Hash blowfish (10 tours)
 				$mdp = crypt($_POST['mdp'],'$2y$10$'.$salt); 
 			//Inscription
-				$reqLog = $bdd->prepare("INSERT INTO users VALUES (NULL,:login,:mdp,:email,:sexe,:datenais,:region,NOW(),NOW(),:ip)");
-				$reqLog->execute(array(
+				$reqLog = $bdd->prepare("INSERT INTO users VALUES (NULL,:login,:mdp,:email,0,:sexe,:datenais,:region,NOW(),NOW(),:ip)");
+				$reqLog ->execute(array(
 					':login' => $_POST['login'],
 					':mdp' => $mdp,
 					':email' => $_POST['email'],
@@ -122,34 +122,36 @@
 	require('includes/header.php');
 	
 ?>
+		
 			<h1>Inscription</h1>
-		<form method="post" action="inscription.php">
-			<div class="titre" >
-				<p>Première visite ?</p>
-				<p>Créer votre compte</p>
-				<p>Pour valider votre inscription, remplissez les champs ci-dessous</p>
-			</div>
-			<div class="contenul">
-				<span style="color:red;"><?php echo $erreurs;?></span>
-				<h3> Vos informations de connexion (obligatoires)</h3>
-				<label>Login : <input type="text" name="login" required  autocomplete="off"></label><br/>
-				<label>Mot de passe : <input name="mdp" type="password" required></label><br/>
-				<label>Confirmation : <input name="conf" type="password" required></label><br/>
-				<label>Adresse mail : <input type="email" name="email" required></label><br/>
-
-				<h3> Vos informations personnelles (faculatives)</h3>
-				Sexe : <label><input type="radio" name="sexe" value="0"> Homme</label> 
-				<label><input type="radio" name="sexe" value="1"> Femme</label><br/>
-				
-				<label>Date de naissance : <input type="date" name="datenais" placeholder="jj-mm-aaaa"></label><br/>
-				<label>Région: <input name="region"></label><br/>
 			
+				<form method="post" action="inscription.php">
 				
-				Acceptez-vous la charte? <a href="charte.php" target="_blank" >Lire la charte</a><br/>
-				<label><input type="checkbox" name="charte">oui,j'accepte</label><br/> 
-				<input type="submit" value="Valider">
+					<p>Ce formulaire d'inscription vous permet de créer un compte pour consulter et contribuer au Forum</p>
+					<p>Remplissez les champs ci-dessous</p>
+				
+				<div class="contenu">
+					<span><?php echo $erreurs;?></span>
+					<h3> Vos informations de connexion (obligatoires)</h3>
+					<label>Login : <input type="text" name="login" required  autocomplete="off" class="case"></label><br/>
+					<label>Mot de passe : <input name="mdp" type="password" required class="case"></label><br/>
+					<label>Confirmation : <input name="conf" type="password" required class="case"></label><br/>
+					<label>Adresse mail : <input type="email" name="email" required class="case"></label><br/>
+
+					<h3> Vos informations personnelles (faculatives)</h3>
+					Sexe : <label><input type="radio" name="sexe" value="0" class="case"> Homme</label> 
+					<label><input type="radio" name="sexe" value="1"> Femme</label><br/>
+					
+					<label >Date de naissance : <input type="date" name="datenais" placeholder="jj-mm-aaaa" class="case"></label><br/>
+					<label >Région: <input name="region"class="case"></label><br/>
+				
+					
+					Acceptez-vous la charte? <a href="charte.php" target="_blank" >Lire la charte</a><br/>
+					<label><input type="checkbox" name="charte" class="case">oui,j'accepte</label><br/> 
+					<input type="submit" value="Valider" class="case">
+				</div>
+				</form>
 			</div>
-		</form>
 <?php
 	require('includes/footer.php');
 ?>

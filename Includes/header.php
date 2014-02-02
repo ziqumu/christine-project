@@ -12,16 +12,24 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<a href="inscription.php">Inscription</a>
-		<a href="connexion.php">Connexion</a>
-		<a href="deconnexion.php">Deconnexion</a><br/>
+		<div class="bandeau"></div>
+		<div class="visite">
+			<div class="new">Première visite ?
+				<a href="inscription.php" class="bouton">Inscription</a>
+			</div>	
+			<div class="inscrit">Déjà inscrit ?
+				<a href="connexion.php" class="bouton">Connexion</a>
+				<a href="deconnexion.php" class="bouton">Déconnexion</a>
+			</div>
+		</div>
+		<div class="contenant">
 	<?php
 		if(!empty($_SESSION['head_msg']))
 		{
-			echo '<div style="height:30px;background-color:green;color:white;">'.$_SESSION['head_msg'].'</div>';
+			echo '<div style="height:50px;background-color:#4c077b;color:white;font-size:24px;text-align:center;margin-top:30px;padding-top:20px;">'.$_SESSION['head_msg'].'</div>';
 			$_SESSION['head_msg'] = '';
 		}
-	echo '<span style="color:gray;">Ton id : '.$user['id'].'</span><br/><br/>';
+	echo $user['id'].'</span><br/><br/>';
 	?>
 	
-	
+	<!--'.<span style="color:gray;">Ton id : '-->

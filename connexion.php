@@ -46,10 +46,10 @@
 		<form method="post" action="connexion.php">
 			
 				<span style="color:red;"><?php echo $erreurs;?></span>
-				<label>Login : <input type="text" name="login" required ></label><br/>
-				<label>Mot de passe : <input name="mdp" type="password" required></label><br/>
+				<label>Login : <input type="text" name="login" required class="case"></label><br/>
+				<label>Mot de passe : <input name="mdp" type="password" required class="case"></label><br/>
 							
-				<input type="submit" value="Valider">
+				<input type="submit" value="Valider" class="case">
 			
 		</form>
 <?php
