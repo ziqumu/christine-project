@@ -1,9 +1,10 @@
 <?php
 	$titre='Accueil';
 	require('includes/header.php');
-	
-
-
+?>	
+	<div class="intro">
+		<p>Profitez de ce site pour partager vos expériences, votre connaissance, votre savoir-faire.<br/>Aider quelqu'un à compléter son puzzle en lui apportant vos idées, votre aide...<br/>OU<br/>Trouver la pièce manquante de votre puzzle en suivant le conseil des autres, en découvrant de nouvelles façons de faire...</p></div>
+<?php
 	$reqforum = $bdd->prepare("SELECT f.`id`, c.`nom` as `cat`,f.`titre`,f.`descript`
 	FROM `categories` AS c 
 	LEFT JOIN `forums` AS f 

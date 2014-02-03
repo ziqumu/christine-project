@@ -133,22 +133,22 @@
 				<div class="contenu">
 					<span><?php echo $erreurs;?></span>
 					<h3> Vos informations de connexion (obligatoires)</h3>
-					<label>Login : <input type="text" name="login" required  autocomplete="off" class="case"></label><br/>
-					<label>Mot de passe : <input name="mdp" type="password" required class="case"></label><br/>
-					<label>Confirmation : <input name="conf" type="password" required class="case"></label><br/>
-					<label>Adresse mail : <input type="email" name="email" required class="case"></label><br/>
+					<label>Login : <input type="text" name="login" required  autocomplete="off" ></label><br/>
+					<label>Mot de passe : <input name="mdp" type="password" required ></label><br/>
+					<label>Confirmation : <input name="conf" type="password" required ></label><br/>
+					<label>Adresse mail : <input type="email" name="email" required ></label><br/>
 
 					<h3> Vos informations personnelles (faculatives)</h3>
-					Sexe : <label><input type="radio" name="sexe" value="0" class="case"> Homme</label> 
+					Sexe : <label><input type="radio" name="sexe" value="0" > Homme</label> 
 					<label><input type="radio" name="sexe" value="1"> Femme</label><br/>
 					
-					<label >Date de naissance : <input type="date" name="datenais" placeholder="jj-mm-aaaa" class="case"></label><br/>
-					<label >Région: <input name="region"class="case"></label><br/>
+					<label >Date de naissance : <input type="date" name="datenais" placeholder="jj-mm-aaaa" ></label><br/>
+					<label >Région: <input name="region"></label><br/>
 				
 					
 					Acceptez-vous la charte? <a href="charte.php" target="_blank" >Lire la charte</a><br/>
-					<label><input type="checkbox" name="charte" class="case">oui,j'accepte</label><br/> 
-					<input type="submit" value="Valider" class="case">
+					<label><input type="checkbox" name="charte" >oui,j'accepte</label><br/> 
+					<input type="submit" value="Valider" >
 				</div>
 				</form>
 			</div>
