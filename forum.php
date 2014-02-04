@@ -40,9 +40,26 @@
 
 	}
 	echo '</table>';
+//Poster un nouveau topic
+	echo '<h2>Poster un nouveau topic</h2>';
 
+	if($user['id'] != false) //Si membre
+	{
+		?>
+			<form method="post" action="posttopic.php">
+				<input type="hidden" name="forum" value="<?php echo $_GET['id'];?>"/>
+				<label> Votre Titre : <br/>
+				<input type="text" name="titre"/></label><br/>
+				<label> Votre message : <br/>
+				<textarea name="message"></textarea></label><br/>
+				<input type="submit" value="envoyer"/>
+			</form>
+		<?php
+	}
+	else
+	{
+		echo 'Vous devez être <a href="inscription.php">inscrit</a> et <a href="connexion.php">connecté</a> pour poster un nouveau topic.';
+	}
 //footer
 	require('includes/footer.php');
-	
-	
 ?>

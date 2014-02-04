@@ -46,11 +46,24 @@
 					<td id="m'.$message['id'].'">'. $message['contenu'] . '</td>
 				</tr>';
 	}
-	echo '</table>';
-	$isTopic=false;
-	$titre = 'Répondre';
-	require('includes/poster.php');
-	
+		echo '	</table>
+				<h2>Répondre</h2>';
+
+	if($user['id'] != false) //Si membre
+	{
+		?>
+			<form method="post" action="postmessage.php">
+				<input type="hidden" name="topic" value="<?php echo $_GET['id'];?>"/>
+				<label> Votre message : <br/>
+				<textarea name="message"></textarea></label><br/>
+				<input type="submit" value="envoyer"/>
+			</form>
+		<?php
+	}
+	else
+	{
+		echo 'Vous devez être <a href="inscription.php">inscrit</a> et <a href="connexion.php">connecté</a> pour répondre.';
+	}
 //footer
 	require('includes/footer.php');
 	

@@ -21,7 +21,7 @@
 		}
 		else
 		{
-			$reqLog = $bdd->prepare("SELECT mdp, id FROM `users` WHERE `login`= :login ");
+			$reqLog = $bdd->prepare("SELECT login, mdp, id FROM `users` WHERE LOWER(`login`)= LOWER(:login) ");
 			$reqLog->execute(array(
 				':login' => $_POST['login']
 				)) or die('Erreur requête verif login : L.'.__LINE__ );
@@ -33,8 +33,12 @@
 				$erreurs = 'Mot de passe incorrect';
 			}
 			else
+			{
 				$_SESSION['compte_id'] = $infoMembre['id'];
-			
+				$_SESSION['head_msg'] = 'Bonjour '.$infoMembre['login']. ' !';
+				header("Location: ./");
+				exit;
+			}			
 		}
 	}
 	//Connexion
