@@ -4,7 +4,7 @@ margin:0;
 padding:0;
 background-color:white;
 }
-.bandeau{
+.bandeau {
 background: #d3d3d3 url(images/bandeau.png) no-repeat;
 height:175px;
 width:800px;
@@ -91,6 +91,7 @@ text-align:justify;
 }
 table {
 border: 2px inset #c0c0c0;
+width:100%;
 }
 .liens {
 width:25%;
@@ -103,6 +104,7 @@ border: 2px  solid #c0c0c0;
 height:auto;
 text-align:justify;
 padding:5px;
+width;75%;
 }
 .footer {
 	background: #d3d3d3 url(images/footerforumh50.png) no-repeat ;

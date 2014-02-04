@@ -1,0 +1,23 @@
+
+Sujet : Forum du savoir Faire Maison
+Thèmes :
+-Fêtes enfants (déco, déguisement, jeux ou animation…)
+-Vêtements (peinture sur tissu coton, tricot, crochet)
+
+
+Liste des rôles :
+> admin :
+- Contrôle des membres (bannissement)
+- Accès à la liste des membres
+- Suppression/édition d’un message
+
+
+>membre :
+Inscription ( pseudo, profil, avatar)
+Modifier ou supprimer ses propres messages
+Possibilité de consulter une page qui affiche des informations sur les membres (profil), et de pouvoir modifier le sien
+
+En fonction du temps, j’ajouterai peut-être au moins une des fonctionnalités suivantes :
+-recevoir et envoyer des messages privés aux autres membres
+-moteur de recherche
+-alerte de news
