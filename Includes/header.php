@@ -12,24 +12,33 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<div class="bandeau"></div>
-		<div class="visite">
-			<div class="new">Première visite ?
-				<a href="inscription.php" class="bouton">Inscription</a>
-			</div>	
-			<div class="inscrit">Déjà inscrit ?
-				<a href="connexion.php" class="bouton">Connexion</a>
-				<a href="deconnexion.php" class="bouton">Déconnexion</a>
-			</div>
-		</div>
-		<div class="contenant">
-	<?php
+		<a class="bandeau" href="./"></a><div class="visite">
+	<?php 
+		if($user['id']) //Si user connecté
+		{
+			?>
+					Bonjour <?php echo $user['login'];?> - <a href="profil.php" class="bouton">Mon profil</a> <a href="deconnexion.php" class="bouton">Déconnexion</a>
+			<?php
+		}
+		else
+		{
+			?>	
+				<div class="new">Première visite ?
+					<a href="inscription.php" class="bouton">Inscription</a>
+				</div>	
+				<div class="inscrit">Déjà inscrit ?
+					<a href="connexion.php" class="bouton">Connexion</a>
+				</div>
+			<?php
+		}
+		echo '</div><div class="contenant">';
 		if(!empty($_SESSION['head_msg']))
 		{
-			echo '<div style="height:50px;background-color:#4c077b;color:white;font-size:24px;text-align:center;margin-top:30px;padding-top:20px;">'.$_SESSION['head_msg'].'</div>';
+			if(!isset($_SESSION['head_class']))$_SESSION['head_class'] = '';
+			echo '<div class="notif '.$_SESSION['head_class'].'" >'.$_SESSION['head_msg'].'</div>';
 			$_SESSION['head_msg'] = '';
+			$_SESSION['head_class'] = '';
 		}
-	echo $user['id'].'</span><br/><br/>';
+	echo '<br/>';
 	?>
 	
-	<!--'.<span style="color:gray;">Ton id : '-->

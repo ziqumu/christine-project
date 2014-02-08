@@ -26,7 +26,10 @@
 	
 	require('includes/header.php');
 	echo '<h1>'.$titre.'</h1>';
-	echo $topic['datepost'].'<br/>'.$topic['login'].'<br/>'.$topic['message'] ;
+	echo '<table><tr>
+			<td style="width:100px">'. $topic['login'].'<br/>'.$topic['datepost'] . '</td>
+			<td id="mfirst" style="word-wrap: break-word;max-width: 675px;">'. nl2br(htmlspecialchars($topic['message'])) . '</td>
+		</tr></table>';
 	
 	$reqmessage = $bdd->prepare("SELECT u.`login`,m.`id`,m.`contenu`,m.`datepost`,m.`id_users` 
 								FROM `messages` AS m 
@@ -38,12 +41,12 @@
 		':idtopic' => $_GET['id']
 		)) or die('Erreur requête liste forums : L.'.__LINE__ );
 		
-	echo '<table>';
+	echo '<h2>Réponses</h2><table style="background-color:#bdbdbd;">';
 		while($message = $reqmessage->fetch())
 	{
-			echo '<tr>
-					<td>'. $message['login'].'<br/>'.$message['datepost'] . '</td>
-					<td id="m'.$message['id'].'">'. $message['contenu'] . '</td>
+			echo '<tr style="background-color:#efefef;">
+					<td style="width:100px;">'. $message['login'].'<br/>'.$message['datepost'] . '</td>
+					<td id="m'.$message['id'].'" style="word-wrap: break-word;max-width: 675px;">'. nl2br(htmlspecialchars($message['contenu'])) . '</td>
 				</tr>';
 	}
 		echo '	</table>

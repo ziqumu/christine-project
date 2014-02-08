@@ -7,6 +7,7 @@
 	if($user['id'] > 0)
 	{
 		$_SESSION['head_msg'] = 'Vous êtes déjà connecté';
+		$_SESSION['head_class'] = 'erreur';
 		header("Location: index.php");
 		exit;
 	}
