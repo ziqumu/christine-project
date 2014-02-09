@@ -134,24 +134,25 @@
 				<div class="contenu">
 					<span><?php echo $erreurs;?></span>
 					<h3> Vos informations de connexion (obligatoires)</h3>
-					<label>Login : <input type="text" name="login" required  autocomplete="off" ></label><br/>
-					<label>Mot de passe : <input name="mdp" type="password" required ></label><br/>
-					<label>Confirmation : <input name="conf" type="password" required ></label><br/>
-					<label>Adresse mail : <input type="email" name="email" required ></label><br/>
+					Login :<div> <input type="text" name="login" required  autocomplete="off" ></div>
+					<label>Mot de passe :<div> <input name="mdp" type="password" required ></div></label>
+					<label>Confirmation :<div> <input name="conf" type="password" required ></div></label>
+					<label>Adresse mail :<div> <input type="email" name="email" required size="50px"></div></label>
 
 					<h3> Vos informations personnelles (faculatives)</h3>
-					Sexe : <label><input type="radio" name="sexe" value="0" > Homme</label> 
-					<label><input type="radio" name="sexe" value="1"> Femme</label><br/>
+					<label>Sexe :</label>
+					<div><input type="radio" name="sexe" value="0" > Homme
+					<input type="radio" name="sexe" value="1"> Femme</div>
 					
-					<label >Date de naissance : <input type="date" name="datenais" placeholder="jj-mm-aaaa" ></label><br/>
-					<label >Région: <input name="region"></label><br/>
+					<label >Date de naissance : </label><div><input type="date" name="datenais" placeholder="jj-mm-aaaa" ><div/>
+					<label >Région: <div><input name="region"></div></label>
 				
 					
 					Acceptez-vous la charte? <a href="charte.php" target="_blank" >Lire la charte</a><br/>
 					<label><input type="checkbox" name="charte" >oui,j'accepte</label><br/> 
 					<input type="submit" value="Valider" >
 				</div>
-				</form>
+				</form><br/>
 			</div>
 <?php
 	require('includes/footer.php');

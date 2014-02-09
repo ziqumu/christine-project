@@ -100,14 +100,8 @@ margin:0;
 }
 
 label{
-width:150px;
-
-display:inline;
-}
-input {
 margin-bottom:10px;
 }
-
 .intro{
 text-align:justify;
 }
@@ -142,7 +136,14 @@ h4 {
 margin-right:100px;
 text-align:right;
 }
-
+ul{
+width:692px;
+text-align:justify;
+}
+li{
+width:692px;
+text-align:justify;
+}
 .footer {
 	background: #d3d3d3 url(images/footerforumh50.png) no-repeat ;
 	width:800px;
