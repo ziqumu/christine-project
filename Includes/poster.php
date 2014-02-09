@@ -14,6 +14,7 @@
 	?>
 	<label> Votre message : <br/>
 	<textarea name="message"></textarea></label>
+	
 	<input type="submit" value="envoyer"/>
 	
 </form>

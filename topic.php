@@ -45,9 +45,13 @@
 		while($message = $reqmessage->fetch())
 	{
 			echo '<tr style="background-color:#efefef;">
-					<td style="width:100px;">'. $message['login'].'<br/>'.$message['datepost'] . '</td>
-					<td id="m'.$message['id'].'" style="word-wrap: break-word;max-width: 675px;">'. nl2br(htmlspecialchars($message['contenu'])) . '</td>
+					<td style="width:100px;">'. $message['login'].'<br/>'.$message['datepost'] . '
+					
+					</td>
+					<td id="m'.$message['id'].'" style="word-wrap: break-word;max-width: 675px;">'. nl2br(htmlspecialchars($message['contenu'])) . '<br/><div class="modsuppr"><a href="forum/editmessage.php?id='.$_GET['id'].'" class="bouton" > modifier</a>
+					<a href=" " class="bouton" >Supprimer</a></div></td>
 				</tr>';
+			
 	}
 		echo '	</table>
 				<h2>Répondre</h2>';
