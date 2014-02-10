@@ -1,8 +1,8 @@
 <?php
 	//connexion bdd
-	require_once('includes/bdd.php');
+	require_once('../includes/bdd.php');
 	//info membre
-	require_once('includes/users.php');
+	require_once('../includes/users.php');
 	//verif données form reçues
 	if(empty($_POST['topic']) || !is_numeric($_POST['topic']) || !isset($_POST['message']))
 	{
@@ -16,7 +16,7 @@
 	{
 		$_SESSION['head_msg'] = 'Vous devez être connecté pour poster.';
 		$_SESSION['head_class'] = 'erreur';
-		header('Location: ./connexion.php');
+		header('Location: ../compte/connexion.php');
 		exit;
 	}
 	//Verif longueur message
@@ -24,7 +24,7 @@
 	{
 		$_SESSION['head_msg'] = 'Votre message doit comporter au moins trois caractères.';
 		$_SESSION['head_class'] = 'erreur';
-		header('Location: ./topic.php?id='.$_POST['topic']);
+		header('Location: topic.php?id='.$_POST['topic']);
 		exit;
 	}
 	//Verif de l'existence du topic
@@ -48,6 +48,6 @@
 	)) or die('Erreur requête inscription : L.'.__LINE__ );
 	//Retour utilisateur
 	$_SESSION['head_msg'] = 'Merci pour votre participation, votre message a été enregistré.';
-	header('Location: ./topic.php?id='.$_POST['topic']);
+	header('Location: topic.php?id='.$_POST['topic']);
 	exit;
 ?>

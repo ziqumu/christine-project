@@ -1,14 +1,14 @@
 <?php
 	//connexion bdd
-		require_once('includes/bdd.php');
+		require_once('../includes/bdd.php');
 	//info membre
-		require_once('includes/users.php');
+		require_once('../includes/users.php');
 	//Si connecté alors redirection vers l'accueil
 	if($user['id'] > 0)
 	{
 		$_SESSION['head_msg'] = 'Vous êtes déjà connecté';
 		$_SESSION['head_class'] = 'erreur';
-		header("Location: index.php");
+		header("Location: ../");
 		exit;
 	}
 	//connection envoi
@@ -18,7 +18,10 @@
 		//verification des champs
 		if(empty($_POST['login']) || empty($_POST['mdp']))
 		{ 
-			$erreurs = 'vous devez remplir tous les champs';
+			$_SESSION['head_msg'] = '';
+			$_SESSION['head_class'] = 'erreur';
+			header("Location: connexion.php");
+			exit;
 		}
 		else
 		{
@@ -31,20 +34,24 @@
 			$hash = crypt($_POST['mdp'],$infoMembre['mdp']);
 			if($hash != $infoMembre['mdp'])
 			{
-				$erreurs = 'Mot de passe incorrect';
+				$_SESSION['head_msg'] = 'Mot de passe incorrect';
+				$_SESSION['head_class'] = 'erreur';
+				header("Location: connexion.php");
+				exit;
 			}
 			else
 			{
 				$_SESSION['compte_id'] = $infoMembre['id'];
 				$_SESSION['head_msg'] = 'Bonjour '.$infoMembre['login']. ' !';
-				header("Location: ./");
+				header("Location: ../");
 				exit;
 			}			
 		}
 	}
 	//Connexion
 	$titre='connexion';
-	require('includes/header.php');
+	$dossier = 'compte';
+	require('../includes/header.php');
 	
 ?>
 			<h1>Connexion</h1>
@@ -58,6 +65,6 @@
 			
 		</form>
 <?php
-	require('includes/footer.php');
+	require('../includes/footer.php');
 ?>
 		

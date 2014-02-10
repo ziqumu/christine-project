@@ -7,15 +7,30 @@ Thèmes :
 
 Liste des rôles :
 > admin :
-- Contrôle des membres (bannissement)
-- Accès à la liste des membres
-- Suppression/édition d’un message
++ Contrôle des membres (bannissement)
++ Accès à la liste des membres
++ Suppression/édition d’un message
 
 
->membre :
-Inscription ( pseudo, profil, avatar)
-Modifier ou supprimer ses propres messages
-Possibilité de consulter une page qui affiche des informations sur les membres (profil), et de pouvoir modifier le sien
+> membre :
++ Inscription ( pseudo, profil, avatar)
++ Modifier ou supprimer ses propres messages
++ Possibilité de consulter une page qui affiche des informations sur les membres (profil), 
++ et de pouvoir modifier le sien
+
+
+TODO :
++ Mettre à jour la date de connexion du membre à chaques fois
++ Mettre l'avatar sur les topics, et un lien sur tous les pseudo vers le profil ajouter aussi admin, et banni
++ Faire en sorte que les boutons n'apparaissent que quand on a la droit
++ Faire un bouton accueil
++ Transférer tous les affichage d'erreur sur l'entete
++ bouton modifier le profil sur le profil
+- faire des pages
+- faire en sorte que seul l'admin peut poster des news
++ faire un lien pour que l'admin puisse accéder à la liste des membres
++ rendre effectif le bannissement à la connexion
+- mettre le css dans le fichier css
 
 En fonction du temps, j’ajouterai peut-être au moins une des fonctionnalités suivantes :
 -recevoir et envoyer des messages privés aux autres membres

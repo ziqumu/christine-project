@@ -26,7 +26,7 @@
 		$catlast = $forum['cat'] ;	 
 	
 			echo '<tr>
-					<td class="liens"><a href="forum.php?id='.$forum['id'].'">'. $forum['titre'] . '</a></td>
+					<td class="liens"><a href="forum/?id='.$forum['id'].'">'. $forum['titre'] . '</a></td>
 					<td class="descript">'. $forum['descript'] . '</td>
 				</tr>';
 	}

@@ -1,8 +1,8 @@
 <?php
 	//connexion bdd
-	require_once('includes/bdd.php');
+	require_once('../includes/bdd.php');
 	//info membre
-	require_once('includes/users.php');
+	require_once('../includes/users.php');
 	//verif données form reçues
 	if(empty($_POST['forum']) || !is_numeric($_POST['forum']) || !isset($_POST['message']) || !isset($_POST['titre']))
 	{
@@ -16,7 +16,7 @@
 	{
 		$_SESSION['head_msg'] = 'Vous devez être connecté pour poster.';
 		$_SESSION['head_class'] = 'erreur';
-		header('Location: ./connexion.php');
+		header('Location: ../compte/connexion.php');
 		exit;
 	}
 	//Verif longueur message
@@ -24,15 +24,15 @@
 	{
 		$_SESSION['head_msg'] = 'Votre message doit comporter au moins 3 caractères.';
 		$_SESSION['head_class'] = 'erreur';
-		header('Location: ./forum.php?id='.$_POST['forum']);
+		header('Location: ./?id='.$_POST['forum']);
 		exit;
 	}
 	//Verif longueur titre
-	elseif(strlen($_POST['titre']) < 3 && strlen($_POST['titre']) > 120) 
+	elseif(strlen($_POST['titre']) < 3 || strlen($_POST['titre']) > 120) 
 	{
-		$_SESSION['head_msg'] = 'Votre titre doit comporter entre trois et 120 caractères.';
+		$_SESSION['head_msg'] = 'Votre titre doit comporter entre 3 et 120 caractères.';
 		$_SESSION['head_class'] = 'erreur';
-		header('Location: ./forum.php?id='.$_POST['forum']);
+		header('Location: ./?id='.$_POST['forum']);
 		exit;
 	}
 	//Verif de l'existence du forum
@@ -57,6 +57,6 @@
 	)) or die('Erreur requête inscription : L.'.__LINE__ );
 	//Retour utilisateur
 	$_SESSION['head_msg'] = 'Merci pour votre participation, votre topic a été enregistré.';
-	header('Location: ./forum.php?id='.$_POST['forum']);
+	header('Location: ./?id='.$_POST['forum']);
 	exit;
 ?>

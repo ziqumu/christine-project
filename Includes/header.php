@@ -1,33 +1,37 @@
 <?php
 	//connexion bdd
-		require_once('includes/bdd.php');
+		require_once(__DIR__.'/bdd.php');
 	//info membre
-		require_once('includes/users.php');
+		require_once(__DIR__.'/users.php');
+
+	if(!empty($dossier))$path = '../';
+	else $path = '';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<title><?php echo $titre;?> &middot; Savoir-Faire Maison </title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo $path;?>style.css">
 	</head>
 	<body>
-		<a class="bandeau" href="./"></a><div class="visite">
+		<a class="bandeau" href="<?php echo $path;?>./"></a><div class="visite">
 	<?php 
 		if($user['id']) //Si user connecté
 		{
 			?>
-					Bonjour <?php echo $user['login'];?> - <a href="profil.php" class="bouton">Mon profil</a> <a href="deconnexion.php" class="bouton">Déconnexion</a>
+					Bonjour <?php echo $user['login'];?> - <a href="<?php echo $path;?>compte/profil.php?id=<?php echo $user['id'];?>" class="bouton">Mon profil</a> 
+					<a href="<?php echo $path;?>compte/deconnexion.php" class="bouton">Déconnexion</a>
 			<?php
 		}
 		else
 		{
 			?>	
 				<div class="new">Première visite ?
-					<a href="inscription.php" class="bouton">Inscription</a>
+					<a href="<?php echo $path;?>compte/inscription.php" class="bouton">Inscription</a>
 				</div>	
 				<div class="inscrit">Déjà inscrit ?
-					<a href="connexion.php" class="bouton">Connexion</a>
+					<a href="<?php echo $path;?>compte/connexion.php" class="bouton">Connexion</a>
 				</div>
 			<?php
 		}
